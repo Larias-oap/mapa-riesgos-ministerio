@@ -195,7 +195,17 @@ DAFP V7 · DE-FR-002 · Versión 2.0
       <div class="nav-item active" onclick="showScreen('dashboard')" id="nav-dashboard">
         <i class="ti ti-layout-dashboard" aria-hidden="true"></i> Dashboard
       </div>
-      <div class="nav-item" onclick="showScreen('procesos')" id="nav-procesos">
+      <div class="nav-item" 
+          onclick="showScreen('procesos')" 
+        id="nav-procesos">
+        
+<div class="nav-item"
+     onclick="showScreen('identificacion')"
+     id="nav-identificacion">
+    <i class="ti ti-building"></i>
+    Identificación del Proceso
+</div>
+
         <i class="ti ti-sitemap" aria-hidden="true"></i> Procesos
       </div>
       <div class="nav-item" onclick="showScreen('mapa')" id="nav-mapa">
@@ -274,6 +284,57 @@ DAFP V7 · DE-FR-002 · Versión 2.0
           </table>
         </div>
       </div>
+      
+<!-- ===== IDENTIFICACIÓN DEL PROCESO ===== -->
+<div class="screen" id="screen-identificacion">
+    <div class="table-wrap" style="padding:20px;">
+        <div class="table-header">
+            <span class="table-title">
+                Identificación del Proceso
+            </span>
+        </div>
+        <div style="
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+            margin-top:15px;">
+            <div>
+                <label>Tipo de Proceso</label>
+                <select style="width:100%;padding:8px;">
+                    <option>Estratégico</option>
+                    <option>Misional</option>
+                    <option>Apoyo</option>
+                    <option>Evaluación</option>
+                </select>
+            </div>
+            <div>
+                <label>Proceso</label>
+                <input type="text"
+                       style="width:100%;padding:8px;">
+            </div>
+            <div style="grid-column:1 / 3;">
+                <label>Objetivo del Proceso</label>
+                <textarea rows="4"
+                          style="width:100%;padding:8px;"></textarea>
+            </div>
+            <div>
+                <label>Dependencia Líder</label>
+                <input type="text"
+                       style="width:100%;padding:8px;">
+            </div>
+            <div>
+                <label>Líder del Proceso</label>
+                <input type="text"
+                       style="width:100%;padding:8px;">
+            </div>
+            <div style="grid-column:1 / 3;">
+                <label>Grupo Interno de Trabajo</label>
+                <input type="text"
+                       style="width:100%;padding:8px;">
+            </div>
+        </div>
+    </div>
+</div>
 
       <!-- ===== MAPA DE CALOR ===== -->
       <div class="screen" id="screen-mapa">
@@ -548,24 +609,24 @@ DAFP V7 · DE-FR-002 · Versión 2.0
 
 <script>
 const PROCESOS = [
-  {id:1,nombre:"Direccionamiento Estratégico y Aprendizaje Organizacional",responsable:"Diana Mora",cargo:"Jefe de Planeación"},
-  {id:2,nombre:"Gestión Jurídica",responsable:"Carlos Peña",cargo:"Jefe Oficina Jurídica"},
-  {id:3,nombre:"Gestión de Comunicaciones",responsable:"Laura Díaz",cargo:"Jefe de Comunicaciones"},
-  {id:4,nombre:"Gestión del Talento Humano",responsable:"Andrea Suárez",cargo:"Jefe de Talento Humano"},
-  {id:5,nombre:"Gestión Financiera",responsable:"Miguel Torres",cargo:"Jefe Financiero"},
-  {id:6,nombre:"Gestión Documental",responsable:"Sandra López",cargo:"Jefe Gestión Documental"},
-  {id:7,nombre:"Gestión de Tecnología e Información",responsable:"Felipe Castro",cargo:"Jefe de TI"},
-  {id:8,nombre:"Gestión de Infraestructura",responsable:"Andrés Vargas",cargo:"Jefe Infraestructura"},
-  {id:9,nombre:"Fomento a la Actividad Física",responsable:"Lucía Ramírez",cargo:"Directora de Fomento"},
-  {id:10,nombre:"Deporte Formativo y Comunitario",responsable:"Jorge Medina",cargo:"Director de Deporte"},
-  {id:11,nombre:"Alto Rendimiento",responsable:"Patricia González",cargo:"Directora Alto Rendimiento"},
-  {id:12,nombre:"Infraestructura Deportiva",responsable:"Ricardo Herrera",cargo:"Director Infraestructura"},
-  {id:13,nombre:"Vigilancia y Control",responsable:"Camila Ortiz",cargo:"Jefe de Control"},
-  {id:14,nombre:"Gestión de Contratos",responsable:"Julián Arce",cargo:"Jefe de Contratación"},
-  {id:15,nombre:"Internacionalización del Deporte",responsable:"Valentina Ruiz",cargo:"Directora Internacionalización"},
-  {id:16,nombre:"Ciencia y Tecnología Deportiva",responsable:"Sebastián Mora",cargo:"Director Ciencia"},
-  {id:17,nombre:"Inclusión Social y Poblaciones",responsable:"Isabel Cruz",cargo:"Directora Inclusión"},
-  {id:18,nombre:"Cooperación y Convenios",responsable:"Alejandro Ríos",cargo:"Jefe de Cooperación"}
+  {id:1,nombre:"Direccionamiento Estratégico y Aprendizaje Organizacional",responsable:"Luz Karime",cargo:"Jefe de Planeación"},
+  {id:2,nombre:"Gestión de Comunicaciones",responsable:"Ginna Ariza",cargo:"Jefe Oficina Jurídica"},
+  {id:3,nombre:"Formulación y Adopción de Políticas, Planes y Programas",responsable:"Ferney Serrano",cargo:"Jefe de Comunicaciones"},
+  {id:4,nombre:"Altos Logros",responsable:"Diana Rincon",cargo:"Jefe de Talento Humano"},
+  {id:5,nombre:"Inspección, Vigilancia y Control",responsable:"Ferney Serrano",cargo:"Jefe Financiero"},
+  {id:6,nombre:"Fomento al Dessarrollo Humano y Social",responsable:"Ginna Ariza",cargo:"Jefe Gestión Documental"},
+  {id:7,nombre:"Apoyo a la Infraestructura Técnica y Cientifica",responsable:"Diana Rincon",cargo:"Jefe de TI"},
+  {id:8,nombre:"Servicio Integral al Ciudadano",responsable:"Luis Arias",cargo:"Jefe Infraestructura"},
+  {id:9,nombre:"Gestión de TICs",responsable:"Luz Karime",cargo:"Directora de Fomento"},
+  {id:10,nombre:"Gestión Documental",responsable:"Jorge Medina",cargo:"Director de Deporte"},
+  {id:11,nombre:"Gestión del Talento Humano",responsable:"Patricia González",cargo:"Directora Alto Rendimiento"},
+  {id:12,nombre:"Adquisición de Bienes y Servicios",responsable:"Ricardo Herrera",cargo:"Director Infraestructura"},
+  {id:13,nombre:"Gestión Financiera",responsable:"Camila Ortiz",cargo:"Jefe de Control"},
+  {id:14,nombre:"Gestión de los Recursos Físicos",responsable:"Julián Arce",cargo:"Jefe de Contratación"},
+  {id:15,nombre:"Gestión Jurídica",responsable:"Valentina Ruiz",cargo:"Directora Internacionalización"},
+  {id:16,nombre:"Evaluación Independiente y Mejora Continua",responsable:"Sebastián Mora",cargo:"Director Ciencia"},
+  {id:17,nombre:"Gestión Proceso Disciplinario",responsable:"Isabel Cruz",cargo:"Directora Inclusión"},
+  {id:18,nombre:"Gestión Ambiental",responsable:"Alejandro Ríos",cargo:"Jefe de Cooperación"}
 ];
 
 let riesgos = [
