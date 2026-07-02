@@ -186,7 +186,7 @@ margin-top:10px;
 font-size:11px;
 color:#94a3b8;
 text-align:center;">
-DAFP V7 · DE-FR-002 · Versión 2.0
+DE-FR-002 · Versión 2.0
 </div>
   
 </div>
@@ -198,7 +198,10 @@ DAFP V7 · DE-FR-002 · Versión 2.0
       <div class="nav-item" 
           onclick="showScreen('procesos')" 
         id="nav-procesos">
-        
+       <i class="ti ti-sitemap" aria-hidden="true"></i>
+       Procesos
+</div>
+
 <div class="nav-item"
      onclick="showScreen('identificacion')"
      id="nav-identificacion">
@@ -684,8 +687,25 @@ function showScreen(name){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('screen-'+name).classList.add('active');
   document.getElementById('nav-'+name).classList.add('active');
-  const titles={dashboard:['Dashboard general','Ministerio del Deporte · Vigencia 2026'],procesos:['Procesos','18 procesos configurados'],mapa:['Mapa de calor','Análisis de riesgo inherente'],formulario:['Registrar riesgo','Guía DAFP V7'],riesgos:['Todos los riesgos','Gestión de riesgos identificados'],responsables:['Responsables','18 responsables asignados']};
-  const t=titles[name]||['',''];
+  
+const titles={
+dashboard:['Dashboard general','Ministerio del Deporte · Vigencia 2026'],
+identificacion:['Identificación del Proceso',
+'Información institucional del proceso'],
+procesos:['Procesos','18 procesos configurados'],
+mapa:['Mapa de calor',
+'Análisis de riesgo inherente'],
+formulario:[
+'Registrar riesgo',
+'Guía DAFP V7'],
+riesgos:['Todos los riesgos',
+'Gestión de riesgos identificados'],
+responsables:[
+'Responsables',
+'18 responsables asignados']
+};
+const t=titles[name]||['',''];
+
   document.getElementById('page-title').textContent=t[0];
   document.getElementById('page-sub').textContent=t[1];
   if(name==='dashboard')renderDashboard();
