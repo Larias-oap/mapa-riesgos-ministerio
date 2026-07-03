@@ -16,9 +16,9 @@
 :root{
   --font-sans:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
 
-  --text-primary:#1B2430;
-  --text-secondary:#4B5768;
-  --text-muted:#8A94A3;
+  --text-primary:#4b569c;
+  --text-secondary:#003189;
+  --text-muted:#d80025;
   --text-accent:#0B5FA5;
   --text-success:#2B6B1F;
   --text-warning:#8A5B00;
@@ -543,6 +543,81 @@ select.form-control option{background:var(--surface-2);color:var(--text-primary)
             </div>
           </div>
 
+<div class="form-section">
+
+  <div class="form-section-header">
+    <i class="ti ti-chart-donut"></i>
+    Valoración residual
+  </div>
+
+  <div class="form-grid">
+
+    <div class="form-group">
+      <label class="form-label">
+        Probabilidad residual
+      </label>
+
+      <select class="form-control"
+              id="f-prob-res"
+              onchange="calcZonaResidual()">
+
+        <option value="">
+          Seleccionar...
+        </option>
+
+        <option value="0.2">Muy Baja (0.2)</option>
+        <option value="0.4">Baja (0.4)</option>
+        <option value="0.6">Media (0.6)</option>
+        <option value="0.8">Alta (0.8)</option>
+        <option value="1.0">Muy Alta (1.0)</option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+
+      <label class="form-label">
+        Impacto residual
+      </label>
+
+      <select class="form-control"
+              id="f-imp-res"
+              onchange="calcZonaResidual()">
+
+        <option value="">
+          Seleccionar...
+        </option>
+
+        <option value="0.2">Leve (0.2)</option>
+        <option value="0.4">Menor (0.4)</option>
+        <option value="0.6">Moderado (0.6)</option>
+        <option value="0.8">Mayor (0.8)</option>
+        <option value="1.0">Catastrófico (1.0)</option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group span2">
+
+      <label class="form-label">
+        Zona de riesgo residual
+      </label>
+
+      <div id="f-zona-residual"
+           style="margin-top:4px;font-size:13px;color:var(--text-muted)">
+
+        Seleccione probabilidad e impacto
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+          
           <div class="form-section">
             <div class="form-section-header"><i class="ti ti-tools"></i> Tratamiento</div>
             <div class="form-grid">
