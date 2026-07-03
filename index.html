@@ -627,10 +627,77 @@ select.form-control option{background:var(--surface-2);color:var(--text-primary)
                   <option>Aceptar</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label class="form-label">Responsable de la acción</label>
-                <input class="form-control" id="f-resp-accion" placeholder="Cargo o nombre">
-              </div>
+             
+<div class="form-section">
+    <div class="form-section-header">
+        <i class="ti ti-calendar-event"></i>
+        Plan de Acción
+    </div>
+    <div class="form-grid">
+        <div class="form-group span2">
+            <label class="form-label">
+                Actividad
+            </label>
+            <input
+                class="form-control"
+                id="f-plan-actividad"
+                placeholder="Describa la acción a ejecutar">
+        </div>
+        <div class="form-group">
+            <label class="form-label">
+                Responsable
+            </label>
+            <input
+                class="form-control"
+                id="f-plan-responsable">
+        </div>
+        <div class="form-group">
+            <label class="form-label">
+                Estado
+            </label>
+            <select
+                class="form-control"
+                id="f-plan-estado">
+                <option>No iniciada</option>
+                <option>En ejecución</option>
+                <option>Finalizada</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">
+                Fecha Inicio
+            </label>
+            <input
+                type="date"
+                class="form-control"
+                id="f-plan-inicio">
+        </div>
+        <div class="form-group">
+            <label class="form-label">
+                Fecha Fin
+            </label>
+            <input
+                type="date"
+                class="form-control"
+                id="f-plan-fin">
+        </div>
+        <div class="form-group span2">
+            <label class="form-label">
+                Avance (%)
+            </label>
+            <input
+                type="range"
+                id="f-plan-avance"
+                min="0"
+                max="100"
+                value="0"
+                oninput="document.getElementById('avance-label').innerText=this.value+'%'">
+            <div id="avance-label">
+                0%
+            </div>
+        </div>
+    </div>
+</div>
               <div class="form-group span2" id="f-aviso-fiscal" style="display:none">
                 <div class="alert alert-warning" style="margin:0"><i class="ti ti-alert-triangle"></i> Atención: los riesgos fiscales NO pueden tener tratamiento "Aceptar" según la Guía DAFP V7.</div>
               </div>
