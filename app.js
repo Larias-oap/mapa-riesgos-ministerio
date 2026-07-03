@@ -411,12 +411,22 @@ async function guardarRiesgo(){
     kri:document.getElementById('f-kri').value,
     kci:document.getElementById('f-kci').value,
     consecuencias:document.getElementById('f-consecuencias').value,
-    registradoPor
+    registradoPor  
+planActividad:
+document.getElementById('f-plan-actividad').value,
+planResponsable:
+document.getElementById('f-plan-responsable').value,
+planEstado:
+document.getElementById('f-plan-estado').value,
+planInicio:
+document.getElementById('f-plan-inicio').value,
+planFin:
+document.getElementById('f-plan-fin').value,
+planAvance:
+document.getElementById('f-plan-avance').value,
   };
-
   const btn=document.getElementById('btn-guardar-riesgo');
   btn.disabled=true; btn.innerHTML='<i class="ti ti-loader-2"></i> Guardando...';
-
   try{
     if(DEMO_MODE){
       const id=nextId++;
@@ -453,6 +463,12 @@ function resetForm(){
   document.getElementById('f-desc-auto').textContent='Complete los campos de arriba para generar la descripción automáticamente.';
   document.getElementById('f-zona-display').innerHTML='<span style="color:var(--text-muted)">Seleccione probabilidad e impacto</span>';
   document.getElementById('f-aviso-fiscal').style.display='none';
+   'f-plan-actividad',
+'f-plan-responsable',
+'f-plan-inicio',
+'f-plan-fin'
+document.getElementById('f-plan-avance').value=0;
+document.getElementById('avance-label').innerText='0%';
 }
 
 async function eliminarRiesgo(id){
@@ -556,7 +572,13 @@ function exportExcel(){
       'KRI':r.kri,
       'KCI':r.kci,
       'Registrado por':r.registradoPor||'',
-      'Fecha':r.fecha||''
+      'Fecha':r.fecha||'' 
+'Actividad':r.planActividad,
+'Responsable Acción':r.planResponsable,
+'Estado Acción':r.planEstado,
+'Fecha Inicio':r.planInicio,
+'Fecha Fin':r.planFin,
+'Avance %':r.planAvance,
     };
   });
   const ws=XLSX.utils.json_to_sheet(filas);
