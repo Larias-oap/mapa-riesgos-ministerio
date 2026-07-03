@@ -341,12 +341,44 @@ function buildDesc(){
 
 function calcZona(){
   const p=parseFloat(document.getElementById('f-prob').value);
-  const i=parseFloat(document.getElementById('f-imp-val').value);
-  const box=document.getElementById('f-zona-display');
-  if(!p||!i){box.innerHTML='<span style="color:var(--text-muted)">Seleccione probabilidad e impacto</span>';return;}
-  const z=getZona(p,i);
-  const score=(p*i).toFixed(2);
-  box.innerHTML=`${badgeZona(z)} <span style="font-size:11px;color:var(--text-muted);margin-left:6px">Calificación: ${score}</span>`;
+    const i=parseFloat(document.getElementById('f-imp-val').value);
+    const box=document.getElementById('f-zona-display');
+    if(!p || !i){
+        box.innerHTML='<span style="color:var(--text-muted)">Seleccione probabilidad e impacto</span>';
+        return;
+    }
+    const z=getZona(p,i);
+    const score=(p*i).toFixed(2);
+    box.innerHTML=
+        `${badgeZona(z)}
+        <span style="font-size:11px;color:var(--text-muted);margin-left:6px">
+        Calificación: ${score}
+        </span>`;
+}
+
+/* NUEVA FUNCIÓN */
+function calcZonaResidual(){
+    const p=parseFloat(
+        document.getElementById('f-prob-res').value
+    );
+    const i=parseFloat(
+        document.getElementById('f-imp-res').value
+    );
+    const box=document.getElementById(
+        'f-zona-residual'
+    );
+    if(!p || !i){
+        box.innerHTML=
+        '<span style="color:var(--text-muted)">Seleccione probabilidad e impacto</span>';
+        return;
+    }
+    const z=getZona(p,i);
+    const score=(p*i).toFixed(2);
+    box.innerHTML=
+        `${badgeZona(z)}
+        <span style="font-size:11px;color:var(--text-muted);margin-left:6px">
+        Calificación: ${score}
+        </span>`;
 }
 
 function checkTratamiento(){
