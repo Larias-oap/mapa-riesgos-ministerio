@@ -411,7 +411,7 @@ async function guardarRiesgo(){
     kri:document.getElementById('f-kri').value,
     kci:document.getElementById('f-kci').value,
     consecuencias:document.getElementById('f-consecuencias').value,
-    registradoPor  
+    registradoPor,  
 planActividad:
 document.getElementById('f-plan-actividad').value,
 planResponsable:
