@@ -572,7 +572,7 @@ function exportExcel(){
       'KRI':r.kri,
       'KCI':r.kci,
       'Registrado por':r.registradoPor||'',
-      'Fecha':r.fecha||'' ,
+      'Fecha':r.fecha||'',
 'Actividad':r.planActividad,
 'Responsable Acción':r.planResponsable,
 'Estado Acción':r.planEstado,
